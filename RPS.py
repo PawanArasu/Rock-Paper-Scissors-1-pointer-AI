@@ -13,35 +13,33 @@ def fun():
 
     if ai_score <= 3 or player_score <= 3:
 
-        win = False
-
-        #if player wins
-
-        if ai_cmd == 'p' and player_cmd == 's':
-            win = True
-
-        if ai_cmd == 'r' and player_cmd == 'p':
-            win = True
-
-        if ai_cmd == 's' and player_cmd == 'r':
-            win = True
-
-
-        if win == True:
-            
-            #when player wins
-            player_score = player_score + 1
-            print('You win!!')
-
+        #if same commands
+        if ai_cmd == player_cmd:
+            print("Well thats a tie, better luck next time!")
+            return
         else:
 
-            #if same commands
-            if ai_cmd == player_cmd:
-                print("Well thats a tie, better luck next time!")
-                return
+            win = False
 
-            #else ai wins
+            #if player wins
+
+            if ai_cmd == 'p' and player_cmd == 's':
+                win = True
+
+            elif ai_cmd == 'r' and player_cmd == 'p':
+                win = True
+
+            elif ai_cmd == 's' and player_cmd == 'r':
+                win = True
+
+
+            if win == True:
+                #when player wins
+                player_score = player_score + 1
+                print('You win!!')
+
             else:
+                #ai wins
                 ai_score = ai_score + 1    
                 print('AI wins!!,better luck next time!')
 
