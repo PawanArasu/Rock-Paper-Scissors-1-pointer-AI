@@ -2,59 +2,48 @@ import random
 
 Cmds = ['r','p','s']
 ai_cmd = random.choice(Cmds)
-print("Thisis a one pointer game SO be Careful with ur decisions!! all the best")
+print("This is a one pointer game SO be Careful with ur decisions!! all the best")
 
-p_cmd = input('rock: r,paper: p,scissor: s ; ')
-
-
+player_cmd = input('rock: r, paper: p, scissor: s ; ')
 
 
 def fun():
-    ai_s = 0
-    p_s = 0
+    ai_score = 0
+    player_score = 0
 
-    if ai_s <= 3 or p_s <= 3:
+    if ai_score <= 3 or player_score <= 3:
 
-        #if same cmds
-
-        if ai_cmd == 'p' and p_cmd == 'p':
-            return 
-
-        if ai_cmd == 'r' and p_cmd == 'r':
-            return
-
-        if ai_cmd == 's' and p_cmd == 's':
-            return
+        win = False
 
         #if player wins
 
-        if ai_cmd == 'p' and p_cmd == 's':
-            p_s = p_s+1
+        if ai_cmd == 'p' and player_cmd == 's':
+            win = True
+
+        if ai_cmd == 'r' and player_cmd == 'p':
+            win = True
+
+        if ai_cmd == 's' and player_cmd == 'r':
+            win = True
+
+
+        if win == True:
+            
+            #when player wins
+            player_score = player_score + 1
             print('You win!!')
 
-        if ai_cmd == 'r' and p_cmd == 'p':
-            p_s = p_s+1    
-            print('You win!!')
+        else:
 
-        if ai_cmd == 's' and p_cmd == 'r':
-            p_s = p_s+1
-            print('You win!!')
+            #if same commands
+            if ai_cmd == player_cmd:
+                print("Well thats a tie, better luck next time!")
+                return
 
-
-        #if AI wins
-
-        if ai_cmd == 's' and p_cmd == 'p':
-            ai_s = ai_s+1
-            print('AI wins!!,better luck next time!')
-
-        if ai_cmd == 'p' and p_cmd == 'r':
-            ai_s = ai_s+1    
-            print('AI wins!!,better luck next time!')
-
-        if ai_cmd == 'r' and p_cmd == 's':
-            ai_s = ai_s+1    
-            print('AI wins!!,better luck next time!')
-
+            #else ai wins
+            else:
+                ai_score = ai_score + 1    
+                print('AI wins!!,better luck next time!')
 
     
 fun()
